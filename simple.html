@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Demo</title>
+    </head>
+    <body>
+        <select></select>
+        <br>
+        <br>
+        <canvas></canvas>
+        <ul></ul>
+        <script type="text/javascript" src="js/qrcodelib.js"></script>
+        <script type="text/javascript" src="js/webcodecamjs.js"></script>
+        <script type="text/javascript">
+        	var txt = "innerText" in HTMLElement.prototype ? "innerText" : "textContent";
+            var arg = {
+                resultFunction: function(resText, lastImageSrc) {
+                	var aChild = document.createElement('li');
+                	aChild[txt] = resText;
+                    document.querySelector('body').appendChild(aChild);
+                }
+            };
+            new WebCodeCamJS("canvas").buildSelectMenu('select').init(arg);
+        </script>
+    </body>
+</html>
