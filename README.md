@@ -126,6 +126,6 @@ http://atandrastoth.co.uk/
 
 2014-11-01
 
-[WebCodeCamJS]:http://atandrastoth.co.uk/main/pages/plugins/codereaderjs/
+[WebCodeCamJS]:http://atandrastoth.co.uk/main/pages/plugins/webcodecamjs/
 [DecoderWorker.js]:https://github.com/EddieLa/BarcodeReader
 [qrcodelib.js]:https://github.com/LazarSoft/jsqrcode
