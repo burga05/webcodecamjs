@@ -124,7 +124,7 @@ Author: Tóth András
 ---
 http://atandrastoth.co.uk/
 
-2014-11-01
+2015-06-10
 
 [WebCodeCamJS]:http://atandrastoth.co.uk/main/pages/plugins/webcodecamjs/
 [DecoderWorker.js]:https://github.com/EddieLa/BarcodeReader
