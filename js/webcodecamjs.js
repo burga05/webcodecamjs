@@ -1,19 +1,3 @@
-Skip to content
-This repository  
-Explore
-Gist
-Blog
-Help
-@andrastoth andrastoth
- 
- Unwatch 1
-  Star 0
-  Fork 0
-andrastoth/webcodecamjs
- branch: master  webcodecamjs/js/webcodecamjs.js
-@andrastothandrastoth 21 hours ago v 1.0.0
-1 contributor
-RawBlameHistory     469 lines (446 sloc)  15.264 kB
 /*!
  * WebCodeCamJS 1.0.0 javascript Bar-Qr code decoder 
  * Author: Tóth András
