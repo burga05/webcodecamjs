@@ -109,8 +109,8 @@ Required HTML & Javascript example
     /* Configurable options */
     decoder.options['parameter'];
     /* Example: 
-    ** decoder.brightness = 20;         - set brightness to 20
-    ** decoder.DecodeQRCodeRate = null; - disable qrcode decoder
+    ** decoder.options.brightness = 20;         - set brightness to 20
+    ** decoder.options.DecodeQRCodeRate = null; - disable qrcode decoder
     */
 </script>
 ```
