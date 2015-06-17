@@ -11,14 +11,13 @@ var WebCodeCamJS = function(element) {
         version: '1.0.0.',
         author: 'Tóth András'
     };
-    var videoSelect, lastImageSrc, con, display, w, h;
+    var videoSelect, lastImageSrc, con, w, h;
     var display = typeof element === "string" ? document.querySelector(element) : element,
         DecodeWorker = new Worker("js/DecoderWorker.js"),
         streams = {},
         camera = createAndAppendTo('<video style="position:absolute;visibility:hidden;display: none;">'),
         flipped = false,
         isStreaming = false,
-        DecodeWorker = new Worker("js/DecoderWorker.js"),
         delayBool = false,
         initialized = false;
     options = {
@@ -130,16 +129,16 @@ var WebCodeCamJS = function(element) {
                 if (options.grayScale) {
                     imageData = grayScale(imageData);
                 }
-                if (options.brightness != 0 || options.autoBrightnessValue) {
+                if (options.brightness !==0 || options.autoBrightnessValue) {
                     imageData = brightness(imageData, options.brightness);
                 }
-                if (options.contrast != 0) {
+                if (options.contrast !==0) {
                     imageData = contrast(imageData, options.contrast);
                 }
-                if (options.threshold != 0) {
+                if (options.threshold !==0) {
                     imageData = threshold(imageData, options.threshold);
                 }
-                if (options.sharpness.length != 0) {
+                if (options.sharpness.length !==0) {
                     imageData = convolute(imageData, options.sharpness);
                 }
                 con.putImageData(imageData, 0, 0);
@@ -177,7 +176,7 @@ var WebCodeCamJS = function(element) {
     }
 
     function tryParseBarCode() {
-        var flipMode = flipped == true ? "flip" : "normal";
+        var flipMode = flipped === true ? "flip" : "normal";
         DecodeWorker.postMessage({
             ImageData: con.getImageData(0, 0, w, h).data,
             Width: w,
@@ -260,7 +259,7 @@ var WebCodeCamJS = function(element) {
     }
 
     function brightness(pixels, adjustment) {
-        adjustment = adjustment == 0 && options.autoBrightnessValue ? options.autoBrightnessValue - getImageLightness() : adjustment;
+        adjustment = adjustment === 0 && options.autoBrightnessValue ? options.autoBrightnessValue - getImageLightness() : adjustment;
         var d = pixels.data;
         for (var i = 0; i < d.length; i += 4) {
             d[i] += adjustment;
@@ -276,35 +275,35 @@ var WebCodeCamJS = function(element) {
             var r = d[i],
                 g = d[i + 1],
                 b = d[i + 2],
-                v = .2126 * r + .7152 * g + .0722 * b;
+                v = 0.2126 * r + 0.7152 * g + 0.0722 * b;
             d[i] = d[i + 1] = d[i + 2] = v;
         }
         return pixels;
     }
 
-    function contrast(pixels, contrast) {
+    function contrast(pixels, cont) {
         var d = pixels.data;
         for (var i = 0; i < d.length; i += 4) {
-            var contrast = 10,
+            cont = 10,
                 average = Math.round((d[i] + d[i + 1] + d[i + 2]) / 3);
             if (average > 127) {
-                d[i] += d[i] / average * contrast;
-                d[i + 1] += d[i + 1] / average * contrast;
-                d[i + 2] += d[i + 2] / average * contrast;
+                d[i] += d[i] / average * cont;
+                d[i + 1] += d[i + 1] / average * cont;
+                d[i + 2] += d[i + 2] / average * cont;
             } else {
-                d[i] -= d[i] / average * contrast;
-                d[i + 1] -= d[i + 1] / average * contrast;
-                d[i + 2] -= d[i + 2] / average * contrast;
+                d[i] -= d[i] / average * cont;
+                d[i + 1] -= d[i + 1] / average * cont;
+                d[i + 2] -= d[i + 2] / average * cont;
             }
         }
         return pixels;
     }
 
-    function threshold(pixels, threshold) {
+    function threshold(pixels, thres) {
         var average, d = pixels.data;
         for (var i = 0, len = w * h * 4; i < len; i += 4) {
             average = d[i] + d[i + 1] + d[i + 2];
-            if (average < threshold) {
+            if (average < thres) {
                 d[i] = d[i + 1] = d[i + 2] = 0;
             } else {
                 d[i] = d[i + 1] = d[i + 2] = 255;
@@ -400,7 +399,7 @@ var WebCodeCamJS = function(element) {
             if (sourceInfo.kind === "video") {
                 var face = sourceInfo.facing === "" ? "unknown" : sourceInfo.facing;
                 var text = sourceInfo.label || "camera " + (videoSelect.length + 1) + " (facing: " + face + ")";
-                createAndAppendTo('<option value="' + sourceInfo.id + '">' + text + '</option>', videoSelect)
+                createAndAppendTo('<option value="' + sourceInfo.id + '">' + text + '</option>', videoSelect);
             }
         }
         options.videoSource.id = videoSelect.children[0].value;
