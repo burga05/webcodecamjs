@@ -1,49 +1,63 @@
 /*!
- * WebCodeCamJS 1.0.0 javascript Bar-Qr code decoder 
+ * WebCodeCamJS 1.5.0 javascript Bar-Qr code decoder 
  * Author: Tóth András
  * Web: http://atandrastoth.co.uk
  * email: atandrastoth@gmail.com
  * Licensed under the MIT license
  */
 (function(undefined) {
-    var Q = function(sel) {
-        var els = document.querySelectorAll(sel);
-        return els.length > 1 ? els : els[0];
-    };
+    function Q(el) {
+        if (typeof el === 'string') {
+            var els = document.querySelectorAll(el);
+            return typeof 'undefined' === els ? undefined : els.length > 1 ? els : els[0];
+        }
+        return el;
+    }
     var txt = "innerText" in HTMLElement.prototype ? "innerText" : "textContent";
-    var sl = Q(".scanner-laser"),
-        pl = Q("#play"),
-        si = Q("#scanned-img"),
-        sQ = Q("#scanned-QR"),
-        sv = Q("#save"),
-        sp = Q("#stop"),
-        spAll = Q("#stopAll"),
-        co = Q("#contrast"),
-        cov = Q("#contrast-value"),
-        zo = Q("#zoom"),
-        zov = Q("#zoom-value"),
-        br = Q("#brightness"),
-        brv = Q("#brightness-value"),
-        tr = Q("#threshold"),
-        trv = Q("#threshold-value"),
-        sh = Q("#sharpness"),
-        shv = Q("#sharpness-value"),
-        gr = Q("#grayscale"),
-        grv = Q("#grayscale-value");
+    var scannerLaser = Q(".scanner-laser"),
+        play = Q("#play"),
+        scannedImg = Q("#scanned-img"),
+        scannedQR = Q("#scanned-QR"),
+        grabImg = Q("#grab-img"),
+        pause = Q("#pause"),
+        stop = Q("#stop"),
+        contrast = Q("#contrast"),
+        contrastValue = Q("#contrast-value"),
+        zoom = Q("#zoom"),
+        zoomValue = Q("#zoom-value"),
+        brightness = Q("#brightness"),
+        brightnessValue = Q("#brightness-value"),
+        threshold = Q("#threshold"),
+        thresholdValue = Q("#threshold-value"),
+        sharpness = Q("#sharpness"),
+        sharpnessValue = Q("#sharpness-value"),
+        grayscale = Q("#grayscale"),
+        grayscaleValue = Q("#grayscale-value");
     var args = {
         autoBrightnessValue: 100,
         resultFunction: function(text, imgSrc) {
-            [].forEach.call(sl, function(el) {
+            [].forEach.call(scannerLaser, function(el) {
                 fadeOut(el, .5);
                 setTimeout(function() {
                     fadeIn(el, .5);
                 }, 300);
             });
-            si.setAttribute("src", imgSrc);
-            sQ[txt] = text;
+            scannedImg.src = imgSrc;
+            scannedQR[txt] = text;
         },
-        getUserMediaError: function() {
-            alert("Sorry, the browser you are using doesn't support getUserMedia");
+        getDevicesError: function(error) {
+            var p, message = "Error detected with the following parameters:\n";
+            for (p in error) {
+                message += p + ": " + error[p] + "\n";
+            }
+            alert(message);
+        },
+        getUserMediaError: function(error) {
+            var p, message = "Error detected with the following parameters:\n";
+            for (p in error) {
+                message += p + ": " + error[p] + "\n";
+            }
+            alert(message);
         },
         cameraError: function(error) {
             var p, message = "Error detected with the following parameters:\n";
@@ -51,97 +65,91 @@
                 message += p + ": " + error[p] + "\n";
             }
             alert(message);
+        },
+        cameraSuccess: function() {
+            grabImg.classList.remove("disabled");
         }
     };
     var decoder = new WebCodeCamJS("#webcodecam-canvas");
-    decoder.buildSelectMenu("select#cameraId");
-    pl.addEventListener("click", function() {
+    decoder.buildSelectMenu("#camera-select");
+    play.addEventListener("click", function() {
         if (!decoder.isInitialized()) {
             decoder.init(args);
-            sQ[txt] = "Scanning ...";
-            sv.classList.remove("disabled");
-            sp.addEventListener("click", function(event) {
-                sv.classList.add("disabled");
-                sQ[txt] = "Stopped";
-                decoder.cameraStop();
-            }, false);
-            spAll.addEventListener("click", function(event) {
-                sv.classList.add("disabled");
-                sQ[txt] = "Stopped";
-                decoder.cameraStopAll();
-            }, false);
+            scannedQR[txt] = "Scanning ...";
         } else {
-            sv.classList.remove("disabled");
-            sQ[txt] = "Scanning ...";
-            decoder.cameraPlay();
+            scannedQR[txt] = "Scanning ...";
+            decoder.play();
         }
     }, false);
-    sv.addEventListener("click", function() {
+    grabImg.addEventListener("click", function() {
         if (!decoder.isInitialized()) {
             return;
         }
         var src = decoder.getLastImageSrc();
-        si.setAttribute("src", src);
+        scannedImg.setAttribute("src", src);
+    }, false);
+    pause.addEventListener("click", function(event) {
+        scannedQR[txt] = "Paused";
+        decoder.pause();
+    }, false);
+    stop.addEventListener("click", function(event) {
+        grabImg.classList.add("disabled");
+        scannedQR[txt] = "Stopped";
+        decoder.stop();
     }, false);
     Page.changeZoom = function(a) {
-        if (!decoder.isInitialized()) {
-            return;
-        }
-        var value = typeof a !== "undefined" ? parseFloat(a.toPrecision(2)) : zo.value / 10;
-        zov[txt] = zov[txt].split(":")[0] + ": " + value.toString();
-        decoder.options.zoom = parseFloat(value);
-        if (typeof a != "undefined") {
-            zo.value = a * 10;
+        if (decoder.isInitialized()) {
+            var value = typeof a !== "undefined" ? parseFloat(a.toPreciscannedImgon(2)) : zoom.value / 10;
+            zoomValue[txt] = zoomValue[txt].split(":")[0] + ": " + value.toString();
+            decoder.options.zoom = parseFloat(value);
+            if (typeof a != "undefined") {
+                zoom.value = a * 10;
+            }
         }
     };
     Page.changeContrast = function() {
-        if (!decoder.isInitialized()) {
-            return;
+        if (decoder.isInitialized()) {
+            var value = contrast.value;
+            contrastValue[txt] = contrastValue[txt].split(":")[0] + ": " + value.toString();
+            decoder.options.contrast = parseFloat(value);
         }
-        var value = co.value;
-        cov[txt] = cov[txt].split(":")[0] + ": " + value.toString();
-        decoder.options.contrast = parseFloat(value);
     };
     Page.changeBrightness = function() {
-        if (!decoder.isInitialized()) {
-            return;
+        if (decoder.isInitialized()) {
+            var value = brightness.value;
+            brightnessValue[txt] = brightnessValue[txt].split(":")[0] + ": " + value.toString();
+            decoder.options.brightness = parseFloat(value);
         }
-        var value = br.value;
-        brv[txt] = brv[txt].split(":")[0] + ": " + value.toString();
-        decoder.options.brightness = parseFloat(value);
     };
     Page.changeThreshold = function() {
-        if (!decoder.isInitialized()) {
-            return;
+        if (decoder.isInitialized()) {
+            var value = threshold.value;
+            thresholdValue[txt] = thresholdValue[txt].split(":")[0] + ": " + value.toString();
+            decoder.options.threshold = parseFloat(value);
         }
-        var value = tr.value;
-        trv[txt] = trv[txt].split(":")[0] + ": " + value.toString();
-        decoder.options.threshold = parseFloat(value);
     };
     Page.changeSharpness = function() {
-        if (!decoder.isInitialized()) {
-            return;
-        }
-        var value = sh["checked"];
-        if (value) {
-            shv[txt] = shv[txt].split(":")[0] + ": on";
-            decoder.options.sharpness = [0, -1, 0, -1, 5, -1, 0, -1, 0];
-        } else {
-            shv[txt] = shv[txt].split(":")[0] + ": off";
-            decoder.options.sharpness = [];
+        if (decoder.isInitialized()) {
+            var value = sharpness["checked"];
+            if (value) {
+                sharpnessValue[txt] = sharpnessValue[txt].split(":")[0] + ": on";
+                decoder.options.sharpness = [0, -1, 0, -1, 5, -1, 0, -1, 0];
+            } else {
+                sharpnessValue[txt] = sharpnessValue[txt].split(":")[0] + ": off";
+                decoder.options.sharpness = [];
+            }
         }
     };
     Page.changeGrayscale = function() {
-        if (!decoder.isInitialized()) {
-            return;
-        }
-        var value = gr["checked"];
-        if (value) {
-            grv[txt] = grv[txt].split(":")[0] + ": on";
-            decoder.options.grayScale = true;
-        } else {
-            grv[txt] = grv[txt].split(":")[0] + ": off";
-            decoder.options.grayScale = false;
+        if (decoder.isInitialized()) {
+            var value = grayscale["checked"];
+            if (value) {
+                grayscaleValue[txt] = grayscaleValue[txt].split(":")[0] + ": on";
+                decoder.options.grayScale = true;
+            } else {
+                grayscaleValue[txt] = grayscaleValue[txt].split(":")[0] + ": off";
+                decoder.options.grayScale = false;
+            }
         }
     };
     var getZomm = setInterval(function() {
@@ -183,4 +191,9 @@
             }
         })();
     }
+    document.querySelector('#camera-select').addEventListener('change', function() {
+        if (decoder.isInitialized()) {
+            decoder.stop().play();
+        }
+    });
 }).call(window.Page = window.Page || {});
