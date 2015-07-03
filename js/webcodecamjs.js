@@ -1,11 +1,12 @@
 /*!
- * WebCodeCamJS 1.5.0 javascript Bar-Qr code decoder 
+ * WebCodeCamJS 1.5.0 javascript Bar code and QR code decoder 
  * Author: Tóth András
  * Web: http://atandrastoth.co.uk
  * email: atandrastoth@gmail.com
  * Licensed under the MIT license
  */
 var WebCodeCamJS = function(element) {
+      'use strict';
     this.Version = {
         name: 'WebCodeCamJS',
         version: '1.5.0.',
@@ -24,9 +25,9 @@ var WebCodeCamJS = function(element) {
         }
     } : null);
     HTMLVideoElement.prototype.streamSrc = ('srcObject' in HTMLVideoElement.prototype) ? function(stream) {
-        this.srcObject = stream ? stream : null;
+        this.srcObject = !!stream ? stream : null;
     } : function(stream) {
-        this.src = stream ? (window.URL || window.webkitURL).createObjectURL(stream) : new String();
+        this.src = !!stream ? (window.URL || window.webkitURL).createObjectURL(stream) : new String();
     };
     var videoSelect, lastImageSrc, con, beepSound, w, h;
     var display = Q(element),
@@ -38,8 +39,8 @@ var WebCodeCamJS = function(element) {
         initialized = false,
         localStream = null,
         options = {
-            decodeQRCodeRate: 10,
-            decodeBarCodeRate: 10,
+            decodeQRCodeRate: 5,
+            decodeBarCodeRate: 5,
             frameRate: 15,
             width: 320,
             height: 240,
@@ -198,7 +199,6 @@ var WebCodeCamJS = function(element) {
                     imageData = convolute(imageData, options.sharpness);
                 }
                 con.putImageData(imageData, 0, 0);
-                lastImageSrc = display.toDataURL();
             }, 1E3 / options.frameRate);
         }, false);
     }
@@ -237,6 +237,7 @@ var WebCodeCamJS = function(element) {
 
     function tryParseBarCode() {
         var flipMode = flipped === true ? 'flip' : 'normal';
+        lastImageSrc = display.toDataURL();
         DecodeWorker.postMessage({
             ImageData: con.getImageData(0, 0, w, h).data,
             Width: w,
@@ -249,6 +250,7 @@ var WebCodeCamJS = function(element) {
 
     function tryParseQRCode() {
         try {
+            lastImageSrc = display.toDataURL();
             qrcode.decode();
         } catch (e) {
             if (!delayBool) {
@@ -304,7 +306,7 @@ var WebCodeCamJS = function(element) {
     }
 
     function contrast(pixels, cont) {
-        var d = pixels.data;
+        var d = pixels.data, average;
         for (var i = 0; i < d.length; i += 4) {
             cont = 10,
                 average = Math.round((d[i] + d[i + 1] + d[i + 2]) / 3);
@@ -521,7 +523,7 @@ var WebCodeCamJS = function(element) {
             return this;
         },
         getLastImageSrc: function() {
-            return lastImageSrc;
+            return display.toDataURL();
         },
         isInitialized: function() {
             return initialized;
