@@ -10,7 +10,7 @@ body {
     background-color: #2d2d2d;
 }
 
-#video-select {
+#camera-select {
     display: inline-block;
     min-width: 140px;
     width: auto;
