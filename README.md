@@ -18,15 +18,19 @@ Faster, Lower CPU and Memory usage and more conigurable!
 
 Version
 ----
+
+1.5.0
 	- Optimized for all modern browsers
 	- Refactor functions
-1.5.0
 
 Version
 ----
 
 1.0.0
 
+	- Very simple usage
+  	- Some option for optimal result
+   	- Quick implementation
 
 Included decoders
 -----------
