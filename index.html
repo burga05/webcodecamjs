@@ -109,7 +109,7 @@
 <div style="height:400px;overflow: auto;border-radius: 4px;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html&gt;</span>
 <span style="color: #f92672">&lt;html&gt;</span>
     <span style="color: #f92672">&lt;head&gt;</span>
-        <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">"UTF-8"</span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;</span>
         <span style="color: #f92672">&lt;title&gt;</span>Demo<span style="color: #f92672">&lt;/title&gt;</span>
     <span style="color: #f92672">&lt;/head&gt;</span>
     <span style="color: #f92672">&lt;body&gt;</span>
@@ -118,22 +118,22 @@
         <span style="color: #f92672">&lt;canvas&gt;&lt;/canvas&gt;</span>
         <span style="color: #f92672">&lt;hr&gt;</span>
         <span style="color: #f92672">&lt;ul&gt;&lt;/ul&gt;</span>
-        <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">"text/javascript"</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">"js/qrcodelib.js"</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
-        <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">"text/javascript"</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">"js/webcodecamjs.js"</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
-        <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">"text/javascript"</span><span style="color: #f92672">&gt;</span>
-            <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">txt</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">"innerText"</span> <span style="color: #66d9ef">in</span> <span style="color: #a6e22e">HTMLElement</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">prototype</span> <span style="color: #f92672">?</span> <span style="color: #e6db74">"innerText"</span> <span style="color: #f92672">:</span> <span style="color: #e6db74">"textContent"</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;js/qrcodelib.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+        <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;js/webcodecamjs.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+        <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+            <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">txt</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;innerText&quot;</span> <span style="color: #66d9ef">in</span> <span style="color: #a6e22e">HTMLElement</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">prototype</span> <span style="color: #f92672">?</span> <span style="color: #e6db74">&quot;innerText&quot;</span> <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;textContent&quot;</span><span style="color: #f8f8f2">;</span>
             <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">arg</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
                 <span style="color: #a6e22e">resultFunction</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">resText</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">lastImageSrc</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">aChild</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">'li'</span><span style="color: #f8f8f2">);</span>
+                    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">aChild</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;li&#39;</span><span style="color: #f8f8f2">);</span>
                     <span style="color: #a6e22e">aChild</span><span style="color: #f8f8f2">[</span><span style="color: #a6e22e">txt</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">resText</span><span style="color: #f8f8f2">;</span>
-                    <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">querySelector</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">'body'</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">appendChild</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">aChild</span><span style="color: #f8f8f2">);</span>
+                    <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">querySelector</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;body&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">appendChild</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">aChild</span><span style="color: #f8f8f2">);</span>
                 <span style="color: #f8f8f2">}</span>
             <span style="color: #f8f8f2">};</span>
-            <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">WebCodeCamJS</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">"canvas"</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">init</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">arg</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">WebCodeCamJS</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;canvas&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">init</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">arg</span><span style="color: #f8f8f2">);</span>
   <span style="color: #75715e">/* ----------------------------------------- Available parameters -----------------------------------------*/</span>
     <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">options</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #a6e22e">decodeQRCodeRate</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span>            <span style="color: #75715e">// null to disable OR int &gt; 0 !</span>
-        <span style="color: #a6e22e">decodeBarCodeRate</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span>           <span style="color: #75715e">// null to disable OR int &gt; 0 !</span>
+        <span style="color: #a6e22e">DecodeQRCodeRate</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span>            <span style="color: #75715e">// null to disable OR int &gt; 0 !</span>
+        <span style="color: #a6e22e">DecodeBarCodeRate</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span>           <span style="color: #75715e">// null to disable OR int &gt; 0 !</span>
         <span style="color: #a6e22e">frameRate</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">15</span><span style="color: #f8f8f2">,</span>                  <span style="color: #75715e">// 1 - 25</span>
         <span style="color: #a6e22e">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">320</span><span style="color: #f8f8f2">,</span>                     <span style="color: #75715e">// canvas width</span>
         <span style="color: #a6e22e">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">240</span><span style="color: #f8f8f2">,</span>                    <span style="color: #75715e">// canvas height</span>
@@ -152,7 +152,7 @@
         <span style="color: #a6e22e">flipVertical</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">,</span>            <span style="color: #75715e">// boolean</span>
         <span style="color: #a6e22e">flipHorizontal</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">,</span>          <span style="color: #75715e">// boolean</span>
         <span style="color: #a6e22e">zoom</span><span style="color: #f92672">:</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span>                       <span style="color: #75715e">// if zoom = -1, auto zoom for optimal resolution else int</span>
-        <span style="color: #a6e22e">beep</span><span style="color: #f92672">:</span> <span style="color: #e6db74">"js/beep.mp3"</span><span style="color: #f8f8f2">,</span>            <span style="color: #75715e">// string, audio file location</span>
+        <span style="color: #a6e22e">beep</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;js/beep.mp3&quot;</span><span style="color: #f8f8f2">,</span>            <span style="color: #75715e">// string, audio file location</span>
         <span style="color: #a6e22e">brightness</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span>                  <span style="color: #75715e">// int</span>
         <span style="color: #a6e22e">autoBrightnessValue</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">,</span>     <span style="color: #75715e">// functional when value autoBrightnessValue is int</span>
         <span style="color: #a6e22e">grayScale</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">,</span>               <span style="color: #75715e">// boolean</span>
@@ -163,10 +163,10 @@
             <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">resText</span><span style="color: #f8f8f2">);</span>
         <span style="color: #f8f8f2">},</span>
         <span style="color: #a6e22e">cameraSuccess</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">stream</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>                   <span style="color: #75715e">//callback funtion to camera success</span>
-            <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">'cameraSuccess'</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;cameraSuccess&#39;</span><span style="color: #f8f8f2">);</span>
         <span style="color: #f8f8f2">},</span>
         <span style="color: #a6e22e">canPlayFunction</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>                       <span style="color: #75715e">//callback funtion to can play</span>
-            <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">'canPlayFunction'</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;canPlayFunction&#39;</span><span style="color: #f8f8f2">);</span>
         <span style="color: #f8f8f2">},</span>
         <span style="color: #a6e22e">getDevicesError</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">error</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>                  <span style="color: #75715e">//callback funtion to get Devices error</span>
             <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">error</span><span style="color: #f8f8f2">);</span>
@@ -180,24 +180,24 @@
     <span style="color: #f8f8f2">};</span>
 
     <span style="color: #75715e">/*------------------------------------ Declarations and initializing ------------------------------------*/</span>
-    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">canvas</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">querySelector</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">'#webcodecam-canvas'</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">canvas</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">querySelector</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;#webcodecam-canvas&#39;</span><span style="color: #f8f8f2">);</span>
     <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">WebCodeCamJS</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">canvas</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">init</span><span style="color: #f8f8f2">();</span>
     <span style="color: #75715e">/* OR */</span>
-    <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">WebCodeCamJS</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">'#webcodecam-canvas'</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">init</span><span style="color: #f8f8f2">();</span>
+    <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">WebCodeCamJS</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;#webcodecam-canvas&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">init</span><span style="color: #f8f8f2">();</span>
     <span style="color: #75715e">/*--------------------------------------- Example initializations ---------------------------------------*/</span>
-    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">decoder</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">WebCodeCamJS</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">'#webcodecam-canvas'</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">decoder</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">WebCodeCamJS</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;#webcodecam-canvas&#39;</span><span style="color: #f8f8f2">);</span>
     <span style="color: #75715e">/* Chrome &amp; Spartan: build select menu, return decoder object</span>
 <span style="color: #75715e">    *  Firefox: the default camera initializes, return decoder object </span>
 <span style="color: #75715e">    */</span>
-    <span style="color: #a6e22e">decoder</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">buildSelectMenu</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">'select'</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #a6e22e">decoder</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">buildSelectMenu</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;select&#39;</span><span style="color: #f8f8f2">);</span>
     <span style="color: #75715e">//init with arguments, return decoder object</span>
     <span style="color: #a6e22e">decoder</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">init</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">args</span><span style="color: #f8f8f2">);</span>
     <span style="color: #75715e">/*OR with defaults*/</span>
-    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">decoder</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">WebCodeCamJS</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">'#webcodecam-canvas'</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">init</span><span style="color: #f8f8f2">();</span>
+    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">decoder</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">WebCodeCamJS</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;#webcodecam-canvas&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">init</span><span style="color: #f8f8f2">();</span>
     <span style="color: #75715e">/*OR with arguments*/</span>
-    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">decoder</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">WebCodeCamJS</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">'#webcodecam-canvas'</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">init</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">args</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">decoder</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">WebCodeCamJS</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;#webcodecam-canvas&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">init</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">args</span><span style="color: #f8f8f2">);</span>
     <span style="color: #75715e">/*OR with video source selector builder and initialization*/</span>
-    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">decoder</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">WebCodeCamJS</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">'#webcodecam-canvas'</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">buildSelectMenu</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">'select'</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">init</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">args</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">decoder</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">WebCodeCamJS</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;#webcodecam-canvas&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">buildSelectMenu</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;select&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">init</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">args</span><span style="color: #f8f8f2">);</span>
 
     <span style="color: #75715e">/* ---------------------------------------- Available Functions: ----------------------------------------*/</span>
     <span style="color: #75715e">/* camera stop &amp; delete stream */</span>
@@ -206,18 +206,19 @@
     <span style="color: #a6e22e">decoder</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">play</span><span style="color: #f8f8f2">();</span>
     <span style="color: #75715e">/* get current image from camera */</span>
     <span style="color: #a6e22e">decoder</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">getLastImageSrc</span><span style="color: #f8f8f2">();</span>
+    <span style="color: #75715e">/* get optimal zoom */</span>
+    <span style="color: #a6e22e">decoder</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">getOptimalZoom</span><span style="color: #f8f8f2">();</span>
     <span style="color: #75715e">/* Configurable options */</span>
-    <span style="color: #a6e22e">decoder</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">options</span><span style="color: #f8f8f2">[</span><span style="color: #e6db74">'parameter'</span><span style="color: #f8f8f2">];</span>
+    <span style="color: #a6e22e">decoder</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">options</span><span style="color: #f8f8f2">[</span><span style="color: #e6db74">&#39;parameter&#39;</span><span style="color: #f8f8f2">];</span>
     <span style="color: #75715e">/* Example: </span>
 <span style="color: #75715e">    ** decoder.options.brightness = 20;         - set brightness to 20</span>
-<span style="color: #75715e">    ** decoder.options.decodeQRCodeRate = null; - disable qrcode decoder</span>
+<span style="color: #75715e">    ** decoder.options.DecodeQRCodeRate = null; - disable qrcode decoder</span>
 <span style="color: #75715e">    */</span>
         <span style="color: #f92672">&lt;/script&gt;</span>
     <span style="color: #f92672">&lt;/body&gt;</span>
 <span style="color: #f92672">&lt;/html&gt;</span>
-</pre>
-</div>
-        	</div>
+</pre></div>
+            </div>
         </div>
         <script type="text/javascript" src="js/qrcodelib.js"></script>
         <script type="text/javascript" src="js/webcodecamjs.js"></script>

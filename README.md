@@ -21,17 +21,17 @@ Version
 
 1.5.0
 
-	- Optimized for all modern browsers
-	- Refactor functions
+    - Optimized for all modern browsers
+    - Refactor functions
 
 Version
 ----
 
 1.0.0
 
-	- Very simple usage
-  	- Some option for optimal result
-   	- Quick implementation
+    - Very simple usage
+    - Some option for optimal result
+    - Quick implementation
 
 Included decoders
 -----------
@@ -145,6 +145,8 @@ Required HTML & Javascript example
     decoder.play();
     /* get current image from camera */
     decoder.getLastImageSrc();
+    /* get optimal zoom */
+    decoder.getOptimalZoom();
     /* Configurable options */
     decoder.options['parameter'];
     /* Example: 

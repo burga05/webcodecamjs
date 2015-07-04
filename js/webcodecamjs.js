@@ -6,7 +6,7 @@
  * Licensed under the MIT license
  */
 var WebCodeCamJS = function(element) {
-	  'use strict';
+    'use strict';
     this.Version = {
         name: 'WebCodeCamJS',
         version: '1.5.0.',
@@ -32,7 +32,7 @@ var WebCodeCamJS = function(element) {
     var videoSelect, lastImageSrc, con, beepSound, w, h;
     var display = Q(element),
         DecodeWorker = new Worker('js/DecoderWorker.js'),
-        video = document.createElement('video'),
+        video = html('<video muted autoplay></video>'),
         flipped = false,
         isStreaming = false,
         delayBool = false,
@@ -203,7 +203,7 @@ var WebCodeCamJS = function(element) {
         }, false);
     }
 
-    function setCallback() {
+    function setCallBack() {
         DecodeWorker.onmessage = function(e) {
             if (delayBool || video.paused) {
                 return;
@@ -263,7 +263,7 @@ var WebCodeCamJS = function(element) {
         setTimeout(play, 500, true);
     }
 
-    function optimalZoom(zoom) {
+    function optimalZoom() {
         return video.videoHeight / h;
     }
 
@@ -306,7 +306,8 @@ var WebCodeCamJS = function(element) {
     }
 
     function contrast(pixels, cont) {
-        var d = pixels.data, average;
+        var d = pixels.data,
+            average;
         for (var i = 0; i < d.length; i += 4) {
             cont = 10,
                 average = Math.round((d[i] + d[i + 1] + d[i + 2]) / 3);
@@ -501,7 +502,7 @@ var WebCodeCamJS = function(element) {
                 initialized = true;
                 setEventListeners();
                 if (options.decodeQRCodeRate || options.decodeBarCodeRate) {
-                    setCallback();
+                    setCallBack();
                 }
             }
             return this;
@@ -521,6 +522,9 @@ var WebCodeCamJS = function(element) {
         buildSelectMenu: function(selector) {
             buildSelectMenu(selector);
             return this;
+        },
+        getOptimalZoom: function() {
+            return optimalZoom();
         },
         getLastImageSrc: function() {
             return display.toDataURL();
