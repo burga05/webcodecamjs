@@ -132,8 +132,8 @@
             <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">WebCodeCamJS</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">"canvas"</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">init</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">arg</span><span style="color: #f8f8f2">);</span>
   <span style="color: #75715e">/* ----------------------------------------- Available parameters -----------------------------------------*/</span>
     <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">options</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #a6e22e">DecodeQRCodeRate</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span>            <span style="color: #75715e">// null to disable OR int &gt; 0 !</span>
-        <span style="color: #a6e22e">DecodeBarCodeRate</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span>           <span style="color: #75715e">// null to disable OR int &gt; 0 !</span>
+        <span style="color: #a6e22e">decodeQRCodeRate</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span>            <span style="color: #75715e">// null to disable OR int &gt; 0 !</span>
+        <span style="color: #a6e22e">decodeBarCodeRate</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span>           <span style="color: #75715e">// null to disable OR int &gt; 0 !</span>
         <span style="color: #a6e22e">frameRate</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">15</span><span style="color: #f8f8f2">,</span>                  <span style="color: #75715e">// 1 - 25</span>
         <span style="color: #a6e22e">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">320</span><span style="color: #f8f8f2">,</span>                     <span style="color: #75715e">// canvas width</span>
         <span style="color: #a6e22e">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">240</span><span style="color: #f8f8f2">,</span>                    <span style="color: #75715e">// canvas height</span>
@@ -210,7 +210,7 @@
     <span style="color: #a6e22e">decoder</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">options</span><span style="color: #f8f8f2">[</span><span style="color: #e6db74">'parameter'</span><span style="color: #f8f8f2">];</span>
     <span style="color: #75715e">/* Example: </span>
 <span style="color: #75715e">    ** decoder.options.brightness = 20;         - set brightness to 20</span>
-<span style="color: #75715e">    ** decoder.options.DecodeQRCodeRate = null; - disable qrcode decoder</span>
+<span style="color: #75715e">    ** decoder.options.decodeQRCodeRate = null; - disable qrcode decoder</span>
 <span style="color: #75715e">    */</span>
         <span style="color: #f92672">&lt;/script&gt;</span>
     <span style="color: #f92672">&lt;/body&gt;</span>

@@ -6,7 +6,7 @@
  * Licensed under the MIT license
  */
 var WebCodeCamJS = function(element) {
-      'use strict';
+	  'use strict';
     this.Version = {
         name: 'WebCodeCamJS',
         version: '1.5.0.',

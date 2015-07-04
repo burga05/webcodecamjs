@@ -12,7 +12,6 @@ body {
 
 #camera-select {
     display: inline-block;
-    min-width: 140px;
     width: auto;
 }
 
@@ -65,7 +64,8 @@ button {
     outline: none !important;
 }
 
-.table-bordered * {
+.table-bordered {
+    color: #777;
     cursor: default;
 }
 
@@ -74,18 +74,20 @@ button {
 }
 
 .table-bordered th a {
-    vertical-align: middle;
     float: right;
     line-height: 3.49;
 }
 
 .table-bordered td a {
-    vertical-align: middle;
     float: left;
 }
 
 .table-bordered th img {
     float: left;
+}
+
+.table-bordered th, .table-bordered td {
+    vertical-align: middle !important;
 }
 
 .scanner-laser {
