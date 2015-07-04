@@ -99,7 +99,7 @@
     }, false);
     Page.changeZoom = function(a) {
         if (decoder.isInitialized()) {
-            var value = typeof a !== "undefined" ? parseFloat(a.toPreciscannedImgon(2)) : zoom.value / 10;
+            var value = typeof a !== "undefined" ? parseFloat(a.toPrecision(2)) : zoom.value / 10;
             zoomValue[txt] = zoomValue[txt].split(":")[0] + ": " + value.toString();
             decoder.options.zoom = parseFloat(value);
             if (typeof a != "undefined") {
@@ -155,11 +155,11 @@
     var getZomm = setInterval(function() {
         var a;
         try {
-            a = decoder.optimalZoom();
+            a = decoder.getOptimalZoom();
         } catch (e) {
             a = 0;
         }
-        if (a != 0) {
+        if (!!a && a !== 0) {
             Page.changeZoom(a);
             clearInterval(getZomm);
         }

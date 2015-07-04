@@ -32,7 +32,7 @@ var WebCodeCamJS = function(element) {
     var videoSelect, lastImageSrc, con, beepSound, w, h;
     var display = Q(element),
         DecodeWorker = new Worker('js/DecoderWorker.js'),
-        video = document.createElement('video'),
+        video = html('<video nuted autoplay></video>'),
         flipped = false,
         isStreaming = false,
         delayBool = false,
@@ -263,7 +263,7 @@ var WebCodeCamJS = function(element) {
         setTimeout(play, 500, true);
     }
 
-    function optimalZoom(zoom) {
+    function optimalZoom() {
         return video.videoHeight / h;
     }
 
@@ -521,6 +521,9 @@ var WebCodeCamJS = function(element) {
         buildSelectMenu: function(selector) {
             buildSelectMenu(selector);
             return this;
+        },
+        getOptimalZoom: function(){
+        	return optimalZoom();
         },
         getLastImageSrc: function() {
             return display.toDataURL();
