@@ -1,5 +1,5 @@
 /*!
- * WebCodeCamJS 1.5.0 javascript Bar code and QR code decoder 
+ * WebCodeCamJS 1.6.0 javascript Bar code and QR code decoder 
  * Author: Tóth András
  * Web: http://atandrastoth.co.uk
  * email: atandrastoth@gmail.com
@@ -9,10 +9,10 @@ var WebCodeCamJS = function(element) {
     'use strict';
     this.Version = {
         name: 'WebCodeCamJS',
-        version: '1.5.0.',
+        version: '1.6.0.',
         author: 'Tóth András'
     };
-    navigator.mediaDevices = navigator.mediaDevices || ((navigator.getUserMedia || navigator.mozGetUserMedia || navigator.webkitGetUserMedia) ? {
+    var mediaDevices = navigator.mediaDevices || ((navigator.getUserMedia || navigator.mozGetUserMedia || navigator.webkitGetUserMedia) ? {
         getUserMedia: function(c) {
             return new Promise(function(y, n) {
                 (navigator.getUserMedia || navigator.mozGetUserMedia || navigator.webkitGetUserMedia).call(navigator, c, y, n);
@@ -92,7 +92,7 @@ var WebCodeCamJS = function(element) {
         h = options.height;
         var constraints = changeConstraints();
         try {
-            navigator.mediaDevices.getUserMedia(constraints).then(cameraSuccess).catch(function(error) {
+            mediaDevices.getUserMedia(constraints).then(cameraSuccess).catch(function(error) {
                 options.cameraError(error);
                 return false;
             });
@@ -387,15 +387,15 @@ var WebCodeCamJS = function(element) {
         videoSelect = Q(selectorVideo);
         videoSelect.innerHTML = '';
         try {
-            if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
-                navigator.mediaDevices.enumerateDevices().then(function(devices) {
+            if (mediaDevices && mediaDevices.enumerateDevices) {
+                mediaDevices.enumerateDevices().then(function(devices) {
                     devices.forEach(function(device) {
                         gotSources(device);
                     });
                 }).catch(function(error) {
                     options.getDevicesError(error);
                 });
-            } else if (navigator.mediaDevices && !navigator.mediaDevices.enumerateDevices) {
+            } else if (mediaDevices && !mediaDevices.enumerateDevices) {
                 html('<option value="true">On</option>', videoSelect);
                 options.getDevicesError(new NotSupportError('enumerateDevices Or getSources is Not supported'));
             } else {
