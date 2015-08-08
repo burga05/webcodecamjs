@@ -1,5 +1,5 @@
 /*!
- * WebCodeCamJS 1.5.0 javascript Bar-Qr code decoder 
+ * WebCodeCamJS 1.7.0 javascript Bar-Qr code decoder 
  * Author: Tóth András
  * Web: http://atandrastoth.co.uk
  * email: atandrastoth@gmail.com
@@ -9,7 +9,7 @@
     function Q(el) {
         if (typeof el === 'string') {
             var els = document.querySelectorAll(el);
-            return typeof 'undefined' === els ? undefined : els.length > 1 ? els : els[0];
+            return typeof els === 'undefined' ? undefined : els.length > 1 ? els : els[0];
         }
         return el;
     }
@@ -101,7 +101,7 @@
         if (decoder.isInitialized()) {
             var value = typeof a !== "undefined" ? parseFloat(a.toPrecision(2)) : zoom.value / 10;
             zoomValue[txt] = zoomValue[txt].split(":")[0] + ": " + value.toString();
-            decoder.options.zoom = parseFloat(value);
+            decoder.options.zoom = value;
             if (typeof a != "undefined") {
                 zoom.value = a * 10;
             }

@@ -1,9 +1,11 @@
-WebCodeCamJS 
-=============
+WebCodeCamJS & WebCodeCamJQuery
+===============================
 
-Native javascript version of popular WebCodeCam jQuery plugin
+New versions of popular WebCodeCam jQuery plugin
+Available jquery or javascript version.
 Advantages compared to the previous version:
-Faster, Lower CPU and Memory usage and more conigurable!
+Built in camera selector menu creation.
+Faster, Lower CPU and Memory usage and more configurable!
 
     - Very simple usage
     - Some option for optimal result
@@ -15,6 +17,13 @@ Faster, Lower CPU and Memory usage and more conigurable!
 
 <img src = "compatibility.jpg" width="100%"/>
 <img src = "demo.jpg" width="100%"/>
+
+Version
+----
+
+1.7.0
+
+    - Add jquery version (WebCodeCamJQuery)
 
 Version
 ----
@@ -59,6 +68,12 @@ Required HTML & Javascript example
         <ul></ul>
         <script type="text/javascript" src="js/qrcodelib.js"></script>
         <script type="text/javascript" src="js/webcodecamjs.js"></script>
+        <!-- 
+            Using jquery version:
+            <script type="text/javascript" src="js/jquery.js"></script>
+        	<script type="text/javascript" src="js/qrcodelib.js"></script>
+            <script type="text/javascript" src="js/webcodecamjquery.js"></script>
+        -->
         <script type="text/javascript">
             var txt = "innerText" in HTMLElement.prototype ? "innerText" : "textContent";
             var arg = {
@@ -68,11 +83,10 @@ Required HTML & Javascript example
                     document.querySelector('body').appendChild(aChild);
                 }
             };
-            new WebCodeCamJS("canvas").init(arg);
   /* ----------------------------------------- Available parameters -----------------------------------------*/
     var options = {
-        decodeQRCodeRate: 5,            // null to disable OR int > 0 !
-        decodeBarCodeRate: 5,           // null to disable OR int > 0 !
+        DecodeQRCodeRate: 5,            // null to disable OR int > 0 !
+        DecodeBarCodeRate: 5,           // null to disable OR int > 0 !
         frameRate: 15,                  // 1 - 25
         width: 320,                     // canvas width
         height: 240,                    // canvas height
@@ -119,6 +133,8 @@ Required HTML & Javascript example
     };
 
     /*------------------------------------ Declarations and initializing ------------------------------------*/
+    new WebCodeCamJS("canvas").init(arg);
+    /* OR */
     var canvas = document.querySelector('#webcodecam-canvas');
     new WebCodeCamJS(canvas).init();
     /* OR */
@@ -138,6 +154,15 @@ Required HTML & Javascript example
     /*OR with video source selector builder and initialization*/
     var decoder = new WebCodeCamJS('#webcodecam-canvas').buildSelectMenu('select').init(args);
 
+    /*---------------------------- Example initializations using jquery version ----------------------------*/
+    var decoder = $("#webcodecam-canvas").WebCodeCamJQuery(args).data().plugin_WebCodeCamJQuery;
+    /* Chrome & Spartan: build select menu
+    *  Firefox: the default camera initializes, return decoder object 
+    */
+    decoder.buildSelectMenu("#camera-select");
+    //simple initialization
+    decoder.init();
+
     /* ---------------------------------------- Available Functions: ----------------------------------------*/
     /* camera stop & delete stream */
     decoder.stop();
@@ -151,7 +176,7 @@ Required HTML & Javascript example
     decoder.options['parameter'];
     /* Example: 
     ** decoder.options.brightness = 20;         - set brightness to 20
-    ** decoder.options.decodeQRCodeRate = null; - disable qrcode decoder
+    ** decoder.options.DecodeQRCodeRate = null; - disable qrcode decoder
     */
         </script>
     </body>
