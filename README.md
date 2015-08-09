@@ -1,17 +1,19 @@
 WebCodeCamJS & WebCodeCamJQuery
 ===============================
 
-New versions of popular WebCodeCam jQuery plugin
-Available jquery or javascript version.
-Advantages compared to the previous version:
-Built in camera selector menu creation.
-Faster, Lower CPU and Memory usage and more configurable!
+New versions of popular WebCodeCam jQuery plugin<br>
 
     - Very simple usage
     - Some option for optimal result
     - Quick implementation
     - Optimized for all modern browsers
 
+Advantages compared to the previous version:<br>
+
+    - Built in camera selector menu creation
+    - Faster
+    - Lower CPU and Memory usage
+    - More configurable
 
 * [WebCodeCamJS] - Online Demo 
 
